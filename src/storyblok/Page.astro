@@ -1,0 +1,14 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+interface Props {
+  blok: any;
+}
+
+const { blok } = Astro.props;
+const editableProps = storyblokEditable(blok);
+---
+<main data-blok-c={editableProps['data-blok-c']} data-blok-uid={editableProps['data-blok-uid']}>
+  {blok.body?.map((b: any) => <StoryblokComponent blok={b} />)}
+</main>

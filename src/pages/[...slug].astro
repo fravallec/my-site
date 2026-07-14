@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+const storyblokApi = useStoryblokApi();
+const slug = Astro.params.slug ?? 'home';
+
+const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
+  version: 'draft',
+});
+
+const story = data.story;
+---
+<Layout title="Francesco Vallecoccia | Ecommerce Technical SEO Consultant">
+  <StoryblokComponent blok={story.content} />
+</Layout>

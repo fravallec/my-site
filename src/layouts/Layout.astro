@@ -1,23 +1,318 @@
-<!doctype html>
+---
+interface Props {
+  title?: string;
+}
+const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } = Astro.props;
+---
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav__container">
+        <a href="/" class="nav__logo">Francesco Vallecoccia</a>
+
+        <nav class="nav__links">
+          <div class="nav__item">
+            <span class="nav__parent">Services</span>
+            <div class="nav__dropdown">
+              <a href="/services/technical-seo">Technical SEO</a>
+              <a href="/services/geo-ai-seo">GEO / AI SEO</a>
+              <a href="/services/javascript-seo">Javascript SEO</a>
+              <a href="/services/web-migration">Web Migration</a>
+              <a href="/services/headless-seo">Headless SEO</a>
+            </div>
+          </div>
+          <div class="nav__item">
+            <span class="nav__parent">Industries</span>
+            <div class="nav__dropdown">
+              <a href="/industries/ecommerce">Ecommerce</a>
+              <a href="/industries/saas">SAAS</a>
+              <a href="/industries/medical">Medical</a>
+              <a href="/industries/luxury">Luxury</a>
+            </div>
+          </div>
+          <div class="nav__item">
+            <span class="nav__parent">CMS</span>
+            <div class="nav__dropdown">
+              <a href="/cms/shopify">Shopify</a>
+              <a href="/cms/magento">Magento</a>
+              <a href="/cms/scayle">Scayle</a>
+              <a href="/cms/sanity">Sanity</a>
+            </div>
+          </div>
+          <a href="/case-studies" class="nav__link">Case Studies</a>
+          <a href="/about" class="nav__link">About Me</a>
+          <a href="/blog" class="nav__link">Blog</a>
+        </nav>
+
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <nav class="nav__mobile" id="mobileMenu">
+        <p class="nav__mobile-group">Services</p>
+        <a href="/services/technical-seo">Technical SEO</a>
+        <a href="/services/geo-ai-seo">GEO / AI SEO</a>
+        <a href="/services/javascript-seo">Javascript SEO</a>
+        <a href="/services/web-migration">Web Migration</a>
+        <a href="/services/headless-seo">Headless SEO</a>
+        <p class="nav__mobile-group">Industries</p>
+        <a href="/industries/ecommerce">Ecommerce</a>
+        <a href="/industries/saas">SAAS</a>
+        <a href="/industries/medical">Medical</a>
+        <a href="/industries/luxury">Luxury</a>
+        <p class="nav__mobile-group">CMS</p>
+        <a href="/cms/shopify">Shopify</a>
+        <a href="/cms/magento">Magento</a>
+        <a href="/cms/scayle">Scayle</a>
+        <a href="/cms/sanity">Sanity</a>
+        <div class="nav__mobile-divider"></div>
+        <a href="/case-studies">Case Studies</a>
+        <a href="/about">About Me</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </header>
+
+    <slot />
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__brand">
+          <p class="footer__name">Francesco Vallecoccia</p>
+          <p class="footer__tagline">Ecommerce Technical SEO Consultant</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Services</p>
+          <a href="/services/technical-seo">Technical SEO</a>
+          <a href="/services/geo-ai-seo">GEO / AI SEO</a>
+          <a href="/services/javascript-seo">Javascript SEO</a>
+          <a href="/services/web-migration">Web Migration</a>
+          <a href="/services/headless-seo">Headless SEO</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Industries</p>
+          <a href="/industries/ecommerce">Ecommerce</a>
+          <a href="/industries/saas">SAAS</a>
+          <a href="/industries/medical">Medical</a>
+          <a href="/industries/luxury">Luxury</a>
+          <p class="footer__heading" style="margin-top: 20px;">CMS</p>
+          <a href="/cms/shopify">Shopify</a>
+          <a href="/cms/magento">Magento</a>
+          <a href="/cms/scayle">Scayle</a>
+          <a href="/cms/sanity">Sanity</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">More</p>
+          <a href="/case-studies">Case Studies</a>
+          <a href="/about">About Me</a>
+          <a href="/blog">Blog</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; {new Date().getFullYear()} Francesco Vallecoccia. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      hamburger?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('open');
+      });
+    </script>
+  </body>
 </html>
 
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: rgb(37,49,64); background: #fff; }
+  a { color: inherit; text-decoration: none; }
+</style>
+
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgb(37,49,64);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .nav__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .nav__logo {
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav__link {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav__link:hover { color: white; }
+
+  /* Dropdown */
+  .nav__item {
+    position: relative;
+  }
+  .nav__parent {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: default;
+    white-space: nowrap;
+    padding-bottom: 4px;
+  }
+  .nav__item:hover .nav__parent { color: white; }
+  .nav__dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 8px 0;
+    min-width: 180px;
+    flex-direction: column;
+  }
+  .nav__item:hover .nav__dropdown { display: flex; }
+  .nav__dropdown a {
+    padding: 10px 20px;
+    color: rgb(37,49,64);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .nav__dropdown a:hover { background: #f5f5f5; }
+
+  /* Hamburger */
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+  }
+  .nav__hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+  }
+
+  /* Mobile menu */
+  .nav__mobile {
+    display: none;
+    flex-direction: column;
+    background: rgb(37,49,64);
+    padding: 12px 20px 24px;
+    gap: 12px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .nav__mobile.open { display: flex; }
+  .nav__mobile a {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.95rem;
+    padding-left: 12px;
+  }
+  .nav__mobile-group {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+  }
+  .nav__mobile-divider {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin: 4px 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: rgb(37,49,64);
+    color: white;
+    padding: 56px 20px 0;
+  }
+  .footer__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer__name { font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+  .footer__tagline { color: rgba(255,255,255,0.5); font-size: 0.875rem; line-height: 1.5; }
+  .footer__heading {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer__col a {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+  .footer__col a:hover { color: white; }
+  .footer__bottom {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 20px 0;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 900px) {
+    .nav__links { display: none; }
+    .nav__hamburger { display: flex; }
+    .footer__container { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    .footer__container { grid-template-columns: 1fr; }
+  }
 </style>

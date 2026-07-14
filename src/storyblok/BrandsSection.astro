@@ -1,0 +1,41 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+interface Props { blok: any; }
+const { blok } = Astro.props;
+---
+<section {...storyblokEditable(blok)} class="brands">
+  <div class="brands__container">
+    <p class="brands__label">{blok.title}</p>
+    <div class="brands__grid">
+      {blok.logos?.map((b: any) => <StoryblokComponent blok={b} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .brands {
+    padding: 60px 20px;
+    background: #f7f8f9;
+    border-top: 1px solid rgba(37,49,64,0.06);
+    border-bottom: 1px solid rgba(37,49,64,0.06);
+  }
+  .brands__container { max-width: 1140px; margin: 0 auto; text-align: center; }
+  .brands__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgb(37,49,64);
+    opacity: 0.4;
+    margin-bottom: 36px;
+  }
+  .brands__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 48px 64px;
+  }
+</style>

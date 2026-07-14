@@ -1,0 +1,23 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+interface Props { blok: any; }
+const { blok } = Astro.props;
+---
+<section {...storyblokEditable(blok)} class="services">
+  <div class="services__container">
+    <h2>{blok.title}</h2>
+    <div class="services__grid">
+      {blok.services?.map((b: any) => <StoryblokComponent blok={b} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services { padding: 80px 20px; background: #f9f9f9; }
+  .services__container { max-width: 1140px; margin: 0 auto; }
+  .services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+  h2 { font-size: 2rem; text-align: center; }
+  @media (max-width: 768px) { .services__grid { grid-template-columns: 1fr; } }
+</style>

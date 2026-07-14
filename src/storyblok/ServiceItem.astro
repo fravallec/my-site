@@ -1,0 +1,63 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+
+interface Props { blok: any; }
+const { blok } = Astro.props;
+
+const href = blok.link?.url || blok.link?.cached_url || undefined;
+---
+<a
+  {...storyblokEditable(blok)}
+  class="service-item"
+  href={href}
+>
+  <div class="service-item__icon">→</div>
+  <h3>{blok.Title}</h3>
+  <p>{blok.description}</p>
+  {blok.link && <span class="service-item__arrow">Learn more →</span>}
+</a>
+
+<style>
+  .service-item {
+    background: white;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border: 1px solid rgba(37,49,64,0.08);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .service-item:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .service-item__icon {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    color: rgb(37,49,64);
+    opacity: 0.3;
+  }
+  h3 {
+    color: rgb(37,49,64);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  p {
+    color: #666;
+    line-height: 1.65;
+    font-size: 0.9rem;
+    flex: 1;
+  }
+  .service-item__arrow {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgb(37,49,64);
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .service-item:hover .service-item__arrow { opacity: 1; }
+</style>

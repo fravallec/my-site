@@ -1,0 +1,131 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+
+interface Props {
+  blok: any;
+}
+
+const { blok } = Astro.props;
+---
+
+<section
+  class="hero"
+  data-blok-c={storyblokEditable(blok)['data-blok-c']}
+  data-blok-uid={storyblokEditable(blok)['data-blok-uid']}
+>
+  {blok.image?.filename && (
+    <div class="hero__image">
+      <img src={blok.image.filename} alt="Francesco Vallecoccia" fetchpriority="high" loading="eager" />
+    </div>
+  )}
+  <div class="hero__content">
+    <span class="hero__badge">Ecommerce Technical SEO Consultant</span>
+    <h1>{blok.headline}</h1>
+    <p class="hero__sub">{blok.subheadline}</p>
+    <p class="hero__tagline">I make websites semantically and technically sound.</p>
+    <div class="hero__ctas">
+      <a href="/contact" class="hero__cta hero__cta--primary">{blok.cta_text}</a>
+      <a href="/case-studies" class="hero__cta hero__cta--secondary">View Case Studies</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    width: 100%;
+    min-height: 520px;
+    background-color: rgb(37, 49, 64);
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+  .hero__image {
+    flex: 0 0 45%;
+    overflow: hidden;
+  }
+  .hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .hero__content {
+    flex: 1;
+    padding: 72px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+  }
+  .hero__badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 13px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.18);
+    margin-bottom: 22px;
+    align-self: flex-start;
+  }
+  .hero__content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 14px 0;
+    color: white;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+  .hero__sub {
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin: 0 0 8px 0;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+  .hero__tagline {
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin: 0 0 36px 0;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .hero__ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hero__cta {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .hero__cta--primary {
+    background-color: white;
+    color: rgb(37, 49, 64);
+  }
+  .hero__cta--primary:hover { opacity: 0.88; }
+  .hero__cta--secondary {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .hero__cta--secondary:hover { border-color: white; color: white; }
+
+  @media (max-width: 900px) {
+    .hero { flex-direction: column; min-height: auto; }
+    .hero__image { flex: none; height: 340px; }
+    .hero__content { padding: 44px 24px; }
+    .hero__content h1 { font-size: 2.1rem; }
+  }
+</style>

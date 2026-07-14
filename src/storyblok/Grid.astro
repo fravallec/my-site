@@ -1,0 +1,13 @@
+---
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+interface Props { blok: any; }
+const { blok } = Astro.props;
+---
+<div class="grid">
+  {blok.columns?.map((b: any) => <StoryblokComponent blok={b} />)}
+</div>
+
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+</style>

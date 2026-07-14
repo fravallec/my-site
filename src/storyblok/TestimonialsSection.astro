@@ -1,0 +1,23 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+interface Props { blok: any; }
+const { blok } = Astro.props;
+---
+<section {...storyblokEditable(blok)} class="testimonials">
+  <div class="testimonials__container">
+    <h2>{blok.text}</h2>
+    <div class="testimonials__grid">
+      {blok.testimonials?.map((b: any) => <StoryblokComponent blok={b} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials { padding: 80px 20px; background: rgb(37,49,64); }
+  .testimonials__container { max-width: 1140px; margin: 0 auto; text-align: center; }
+  .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+  h2 { font-size: 2rem; color: white; }
+  @media (max-width: 768px) { .testimonials__grid { grid-template-columns: 1fr; } }
+</style>

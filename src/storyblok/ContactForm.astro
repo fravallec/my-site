@@ -1,0 +1,29 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+
+interface Props { blok: any; }
+const { blok } = Astro.props;
+---
+<section {...storyblokEditable(blok)} class="contact">
+  <div class="contact__container">
+    <h2>{blok.title}</h2>
+    <p>{blok.subtitle}</p>
+    <form class="contact__form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="6" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .contact { padding: 80px 20px; background: #f9f9f9; }
+  .contact__container { max-width: 600px; margin: 0 auto; text-align: center; }
+  .contact__form { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; text-align: left; }
+  input, textarea { padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; width: 100%; }
+  button { background: rgb(37,49,64); color: white; padding: 14px; border: none; border-radius: 4px; font-size: 1rem; font-weight: 700; cursor: pointer; }
+  button:hover { opacity: 0.85; }
+  h2 { font-size: 2rem; }
+  p { color: #555; margin-top: 8px; }
+</style>
