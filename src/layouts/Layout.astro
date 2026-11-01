@@ -25,8 +25,9 @@ const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } =
               <a href="/services/technical-seo">Technical SEO</a>
               <a href="/services/geo-ai-seo">GEO / AI SEO</a>
               <a href="/services/javascript-seo">Javascript SEO</a>
-              <a href="/services/web-migration">Web Migration</a>
+              <a href="/services/seo-migration">Web Migration</a>
               <a href="/services/headless-seo">Headless SEO</a>
+              <a href="/services/seo-data-automation">SEO Data & Automation</a>
             </div>
           </div>
           <div class="nav__item">
@@ -62,8 +63,9 @@ const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } =
         <a href="/services/technical-seo">Technical SEO</a>
         <a href="/services/geo-ai-seo">GEO / AI SEO</a>
         <a href="/services/javascript-seo">Javascript SEO</a>
-        <a href="/services/web-migration">Web Migration</a>
+        <a href="/services/seo-migration">Web Migration</a>
         <a href="/services/headless-seo">Headless SEO</a>
+        <a href="/services/seo-data-automation">SEO Data & Automation</a>
         <p class="nav__mobile-group">Industries</p>
         <a href="/industries/ecommerce">Ecommerce</a>
         <a href="/industries/saas">SAAS</a>
@@ -94,8 +96,9 @@ const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } =
           <a href="/services/technical-seo">Technical SEO</a>
           <a href="/services/geo-ai-seo">GEO / AI SEO</a>
           <a href="/services/javascript-seo">Javascript SEO</a>
-          <a href="/services/web-migration">Web Migration</a>
+          <a href="/services/seo-migration">Web Migration</a>
           <a href="/services/headless-seo">Headless SEO</a>
+          <a href="/services/seo-data-automation">SEO Data & Automation</a>
         </div>
         <div class="footer__col">
           <p class="footer__heading">Industries</p>
@@ -194,15 +197,24 @@ const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } =
   .nav__dropdown {
     display: none;
     position: absolute;
-    top: calc(100% + 12px);
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     background: white;
     border-radius: 6px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    padding: 8px 0;
+    padding: 20px 0 8px;
     min-width: 180px;
     flex-direction: column;
+  }
+  .nav__dropdown::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: transparent;
   }
   .nav__item:hover .nav__dropdown { display: flex; }
   .nav__dropdown a {

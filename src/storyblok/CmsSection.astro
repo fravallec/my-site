@@ -1,0 +1,72 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+
+interface Props { blok: any; }
+const { blok } = Astro.props;
+
+const defaultItems = [
+  { name: 'Shopify SEO', link: '/cms/shopify' },
+  { name: 'Magento SEO', link: '/cms/magento' },
+  { name: 'Next.js SEO', link: '/services/javascript-seo' },
+  { name: 'Scayle SEO', link: '/cms/scayle' },
+];
+---
+
+<section {...storyblokEditable(blok)} class="cms">
+  <div class="cms__container">
+    <h2>{blok.title || 'CMS Platforms I Specialise In'}</h2>
+    {blok.subtitle && <p class="cms__subtitle">{blok.subtitle}</p>}
+    <div class="cms__grid">
+      {defaultItems.map(item => (
+        <a href={item.link} class="cms__item">
+          <span>{item.name}</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cms { padding: 80px 20px; background: #f7f8f9; }
+  .cms__container { max-width: 1140px; margin: 0 auto; text-align: center; }
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgb(37,49,64);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .cms__subtitle {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+  .cms__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .cms__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: white;
+    border: 1px solid rgba(37,49,64,0.08);
+    border-radius: 8px;
+    color: rgb(37,49,64);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cms__item:hover {
+    border-color: rgb(37,49,64);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  @media (max-width: 900px) { .cms__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 500px) { .cms__grid { grid-template-columns: 1fr; } }
+</style>

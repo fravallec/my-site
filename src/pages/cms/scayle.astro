@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Scayle SEO | Francesco Vallecoccia — Technical SEO Consultant">
+  <section class="coming-soon">
+    <div class="coming-soon__container">
+      <span class="coming-soon__label">Coming Soon</span>
+      <h1>Scayle SEO</h1>
+      <p>This page is being built. In the meantime, get in touch to find out how I can help you get the most out of Scayle from a technical SEO perspective.</p>
+      <div class="coming-soon__actions">
+        <a href="/contact" class="coming-soon__cta coming-soon__cta--primary">Get in Touch</a>
+        <a href="/" class="coming-soon__cta coming-soon__cta--secondary">Back to Homepage</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+<style>
+  .coming-soon { min-height: calc(100vh - 64px - 320px); display: flex; align-items: center; justify-content: center; padding: 80px 20px; background: #fff; }
+  .coming-soon__container { max-width: 560px; text-align: center; }
+  .coming-soon__label { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(37,49,64,0.4); margin-bottom: 16px; }
+  h1 { font-size: 2.4rem; font-weight: 700; color: rgb(37,49,64); margin-bottom: 16px; letter-spacing: -0.02em; }
+  p { font-size: 1rem; color: #666; line-height: 1.7; margin-bottom: 40px; }
+  .coming-soon__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .coming-soon__cta { display: inline-block; padding: 14px 28px; border-radius: 4px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+  .coming-soon__cta--primary { background: rgb(37,49,64); color: white; }
+  .coming-soon__cta--primary:hover { opacity: 0.85; }
+  .coming-soon__cta--secondary { background: transparent; color: rgb(37,49,64); border: 1px solid rgba(37,49,64,0.25); }
+  .coming-soon__cta--secondary:hover { border-color: rgb(37,49,64); }
+</style>

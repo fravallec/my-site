@@ -1,0 +1,227 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact | Francesco Vallecoccia — Technical SEO Consultant">
+  <section class="contact-hero">
+    <div class="contact-hero__container">
+      <span class="contact-hero__label">Get in Touch</span>
+      <h1>Let's work together</h1>
+      <p>Available for freelance projects, audits, and ongoing technical SEO consultancy across the UK and internationally.</p>
+    </div>
+  </section>
+
+  <section class="contact-form-section">
+    <div class="contact-form-section__container">
+      <form class="contact-form" name="contact" method="POST">
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="contact-form__field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+          </div>
+        </div>
+        <div class="contact-form__field">
+          <label for="company">Company / Website</label>
+          <input type="text" id="company" name="company" placeholder="Your company or website URL" />
+        </div>
+        <div class="contact-form__field">
+          <label for="subject">What do you need help with?</label>
+          <select id="subject" name="subject">
+            <option value="">Select a service</option>
+            <option value="technical-seo">Technical SEO Audit</option>
+            <option value="geo-ai-seo">GEO / AI SEO</option>
+            <option value="javascript-seo">JavaScript SEO</option>
+            <option value="web-migration">Web Migration</option>
+            <option value="headless-seo">Headless SEO</option>
+            <option value="other">Other / Not sure yet</option>
+          </select>
+        </div>
+        <div class="contact-form__field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Tell me a bit about your project and what you're trying to achieve." required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <aside class="contact-aside">
+        <div class="contact-aside__card">
+          <p class="contact-aside__label">Based in</p>
+          <p>London, UK</p>
+        </div>
+        <div class="contact-aside__card">
+          <p class="contact-aside__label">Available for</p>
+          <ul>
+            <li>Technical audits</li>
+            <li>Ongoing retainers</li>
+            <li>Migration support</li>
+            <li>Remote & on-site</li>
+          </ul>
+        </div>
+        <div class="contact-aside__card">
+          <p class="contact-aside__label">Typical response time</p>
+          <p>Within 24 hours</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .contact-hero {
+    background: rgb(37,49,64);
+    padding: 80px 20px 64px;
+  }
+  .contact-hero__container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .contact-hero__label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+  .contact-hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .contact-hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  /* Form section */
+  .contact-form-section {
+    padding: 64px 20px 80px;
+    background: #fff;
+  }
+  .contact-form-section__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 60px;
+    align-items: start;
+  }
+
+  /* Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgb(37,49,64);
+  }
+  input, select, textarea {
+    padding: 13px 14px;
+    border: 1px solid rgba(37,49,64,0.15);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: rgb(37,49,64);
+    background: #fff;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: rgb(37,49,64);
+  }
+  input::placeholder, textarea::placeholder { color: #aaa; }
+  textarea { resize: vertical; }
+  button[type="submit"] {
+    background: rgb(37,49,64);
+    color: white;
+    padding: 15px 32px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s;
+    align-self: flex-start;
+  }
+  button[type="submit"]:hover { opacity: 0.85; }
+
+  /* Aside */
+  .contact-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 4px;
+  }
+  .contact-aside__card {
+    background: #f7f8f9;
+    border: 1px solid rgba(37,49,64,0.07);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .contact-aside__label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(37,49,64,0.4);
+    margin-bottom: 8px;
+  }
+  .contact-aside__card p:last-child,
+  .contact-aside__card ul {
+    font-size: 0.9rem;
+    color: rgb(37,49,64);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  .contact-aside__card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .contact-aside__card ul li {
+    padding-left: 14px;
+    position: relative;
+  }
+  .contact-aside__card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    opacity: 0.3;
+    font-size: 0.8rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .contact-form-section__container { grid-template-columns: 1fr; }
+    .contact-aside { order: -1; }
+    .contact-hero h1 { font-size: 2rem; }
+  }
+  @media (max-width: 600px) {
+    .contact-form__row { grid-template-columns: 1fr; }
+  }
+</style>

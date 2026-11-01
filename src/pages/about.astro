@@ -1,0 +1,359 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Me | Francesco Vallecoccia — Technical SEO Consultant">
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="about-hero__container">
+      <div class="about-hero__content">
+        <span class="about-hero__label">About Me</span>
+        <h1>Francesco Vallecoccia</h1>
+        <p>One of the UK's leading Technical SEO specialists, with over 10 years of experience helping ecommerce brands grow through technical excellence.</p>
+        <a href="/contact" class="about-hero__cta">Work with me</a>
+      </div>
+      <div class="about-hero__image">
+        <img src="https://a.storyblok.com/f/292465705396671/400x400/f65e9d85a2/francescovallecoccia.webp" alt="Francesco Vallecoccia" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="about-stats">
+    <div class="about-stats__container">
+      <div class="about-stats__item">
+        <strong>10+</strong>
+        <span>Years experience</span>
+      </div>
+      <div class="about-stats__item">
+        <strong>50+</strong>
+        <span>Brands worked with</span>
+      </div>
+      <div class="about-stats__item">
+        <strong>3</strong>
+        <span>Continents</span>
+      </div>
+      <div class="about-stats__item">
+        <strong>100s</strong>
+        <span>of migrations delivered</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="about-bio">
+    <div class="about-bio__container">
+      <div class="about-bio__body">
+        <p>I've spent over 10 years working at the sharp end of technical SEO — from agency roles at Velocity, Stellar Search, and Croud, to hands-on consultancy with some of the UK's most recognised brands, including eBay, Harrods, Oliver Bonas, Danone, Regus, and Clive Christian.</p>
+        <p>My work sits at the intersection of SEO and web development. I specialise in the technical problems that hold ecommerce websites back — crawlability, indexation, JavaScript rendering, site migrations, and structured data. I don't produce shopping-list audits. I prioritise what matters and work alongside development teams to get it fixed.</p>
+        <p>I also bring a data-driven approach to SEO. I use Python and BigQuery to automate audits, analyse large datasets, and surface insights that manual processes simply can't scale to. Whether it's log file analysis, crawl data processing, or building custom reporting pipelines, automation is central to how I work.</p>
+        <p>I'm also focused on where search is heading. As LLMs reshape how content is discovered and cited, I help brands make their websites semantically clear and technically sound — ready for both traditional search engines and AI-powered answers. Whether you need a full technical audit, migration support, or ongoing consultancy, I'm available for freelance engagements across the UK and internationally.</p>
+      </div>
+      <div class="about-bio__sidebar">
+        <div class="about-bio__card">
+          <p class="about-bio__card-label">Specialisms</p>
+          <ul>
+            <li>Technical SEO</li>
+            <li>Ecommerce SEO</li>
+            <li>JavaScript SEO</li>
+            <li>Site Migrations</li>
+            <li>Semantic SEO</li>
+            <li>GEO / AI SEO</li>
+            <li>Python & BigQuery</li>
+            <li>Structured Data</li>
+          </ul>
+        </div>
+        <div class="about-bio__card">
+          <p class="about-bio__card-label">Platforms</p>
+          <ul>
+            <li>Shopify</li>
+            <li>Magento</li>
+            <li>Scayle</li>
+            <li>Sanity</li>
+            <li>Next.js</li>
+          </ul>
+        </div>
+        <div class="about-bio__card">
+          <p class="about-bio__card-label">Previously at</p>
+          <ul>
+            <li>Velocity</li>
+            <li>Stellar Search</li>
+            <li>Croud</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Passion Section -->
+  <section class="about-passion">
+    <div class="about-passion__container">
+      <div class="about-passion__rule"></div>
+      <h2>Passionate About Technical SEO</h2>
+      <div class="about-passion__body">
+        <p>From the beginning of my career, I knew I wanted more than a job — I wanted to build real expertise in something that mattered.</p>
+        <p>It took a while to find my feet. I started out working across social media, digital strategy, and performance marketing before discovering SEO. The more I learned, the more I was drawn to the technical side — the way search engines crawl and interpret websites, the gap between what developers build and what Google actually sees. That's where I decided to specialise.</p>
+        <p>Over 10 years I've worked with some of the UK's most ambitious ecommerce brands, helping them unlock organic growth that was already there — hidden behind technical issues, poor architecture, or content that search engines simply couldn't understand. There's nothing more satisfying than watching a site's traffic climb after months of invisible work finally pays off.</p>
+        <p>I'm also genuinely excited about where search is going. The rise of LLMs and AI-powered answers is the biggest shift in search since Google's early days. I want to be at the front of that change — helping brands adapt before their competitors do.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="about-contact">
+    <div class="about-contact__container">
+      <h2>Get in touch</h2>
+      <p>Available for freelance projects, audits, and ongoing consultancy across the UK and internationally.</p>
+      <form class="about-contact__form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .about-hero {
+    background: rgb(37,49,64);
+    padding: 80px 20px;
+  }
+  .about-hero__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .about-hero__label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+  .about-hero__content h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .about-hero__content p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .about-hero__cta {
+    display: inline-block;
+    background: white;
+    color: rgb(37,49,64);
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .about-hero__cta:hover { opacity: 0.88; }
+  .about-hero__image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* Stats */
+  .about-stats {
+    background: white;
+    border-bottom: 1px solid rgba(37,49,64,0.08);
+  }
+  .about-stats__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  .about-stats__item strong {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: rgb(37,49,64);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .about-stats__item span {
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 500;
+  }
+
+  /* Bio */
+  .about-bio {
+    padding: 80px 20px;
+    background: #fff;
+  }
+  .about-bio__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 60px;
+    align-items: start;
+  }
+  .about-bio__body p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.85;
+    margin-bottom: 24px;
+  }
+  .about-bio__body p:last-child { margin-bottom: 0; }
+  .about-bio__card {
+    background: #f7f8f9;
+    border: 1px solid rgba(37,49,64,0.08);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .about-bio__card:last-child { margin-bottom: 0; }
+  .about-bio__card-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(37,49,64,0.4);
+    margin-bottom: 12px;
+  }
+  .about-bio__card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .about-bio__card ul li {
+    font-size: 0.9rem;
+    color: rgb(37,49,64);
+    font-weight: 500;
+    padding-left: 14px;
+    position: relative;
+  }
+  .about-bio__card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    opacity: 0.3;
+    font-size: 0.8rem;
+  }
+
+  /* Passion */
+  .about-passion {
+    padding: 80px 20px;
+    background: rgb(37,49,64);
+  }
+  .about-passion__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .about-passion__rule {
+    width: 48px;
+    height: 3px;
+    background: rgba(255,255,255,0.2);
+    margin-bottom: 36px;
+  }
+  .about-passion h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.02em;
+    margin-bottom: 36px;
+  }
+  .about-passion__body p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .about-passion__body p:last-child { margin-bottom: 0; }
+
+  /* Contact */
+  .about-contact {
+    padding: 80px 20px;
+    background: #f7f8f9;
+  }
+  .about-contact__container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about-contact__container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(37,49,64);
+    margin-bottom: 12px;
+  }
+  .about-contact__container p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+  .about-contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+  }
+  .about-contact__form input,
+  .about-contact__form textarea {
+    padding: 14px;
+    border: 1px solid rgba(37,49,64,0.15);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    width: 100%;
+    background: white;
+    color: rgb(37,49,64);
+  }
+  .about-contact__form input:focus,
+  .about-contact__form textarea:focus {
+    outline: none;
+    border-color: rgb(37,49,64);
+  }
+  .about-contact__form button {
+    background: rgb(37,49,64);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s;
+  }
+  .about-contact__form button:hover { opacity: 0.85; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .about-hero__container { grid-template-columns: 1fr; }
+    .about-hero__image { display: none; }
+    .about-hero__content h1 { font-size: 2rem; }
+    .about-stats__container { grid-template-columns: 1fr 1fr; }
+    .about-bio__container { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 500px) {
+    .about-stats__container { grid-template-columns: 1fr 1fr; gap: 24px; }
+  }
+</style>
