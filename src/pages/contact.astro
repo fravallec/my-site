@@ -12,7 +12,13 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="contact-form-section">
     <div class="contact-form-section__container">
-      <form class="contact-form" name="contact" method="POST">
+      <div id="form-success" style="display:none; padding: 24px; background: #f0faf4; border: 1px solid #a3d9b8; border-radius: 8px; color: #1a6b3a; font-weight: 500; margin-bottom: 24px;">
+        Message sent — I'll be in touch within 24 hours.
+      </div>
+      <div id="form-error" style="display:none; padding: 24px; background: #fff0f0; border: 1px solid #f5a3a3; border-radius: 8px; color: #9b1c1c; font-weight: 500; margin-bottom: 24px;">
+        Something went wrong. Please try again or email me directly.
+      </div>
+      <form class="contact-form" id="contact-form" name="contact">
         <div class="contact-form__row">
           <div class="contact-form__field">
             <label for="name">Your Name</label>
@@ -43,8 +49,38 @@ import Layout from '../layouts/Layout.astro';
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="6" placeholder="Tell me a bit about your project and what you're trying to achieve." required></textarea>
         </div>
-        <button type="submit">Send Message</button>
+        <button type="submit" id="submit-btn">Send Message</button>
       </form>
+
+      <script>
+        const form = document.getElementById('contact-form') as HTMLFormElement;
+        const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+        const success = document.getElementById('form-success') as HTMLElement;
+        const error = document.getElementById('form-error') as HTMLElement;
+
+        form?.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          btn.disabled = true;
+          btn.textContent = 'Sending…';
+          success.style.display = 'none';
+          error.style.display = 'none';
+
+          try {
+            const res = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
+            if (res.ok) {
+              success.style.display = 'block';
+              form.reset();
+            } else {
+              error.style.display = 'block';
+            }
+          } catch {
+            error.style.display = 'block';
+          } finally {
+            btn.disabled = false;
+            btn.textContent = 'Send Message';
+          }
+        });
+      </script>
 
       <aside class="contact-aside">
         <div class="contact-aside__card">

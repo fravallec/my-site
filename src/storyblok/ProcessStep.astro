@@ -5,13 +5,13 @@ interface Props { blok: any; }
 const { blok } = Astro.props;
 ---
 
-<div {...storyblokEditable(blok)} class="process-step">
+<li {...storyblokEditable(blok)} class="process-step">
   <div class="process-step__number">{blok.number}</div>
   <div class="process-step__content">
     <h3>{blok.title}</h3>
     <p>{blok.description}</p>
   </div>
-</div>
+</li>
 
 <style>
   .process-step {
@@ -22,6 +22,7 @@ const { blok } = Astro.props;
     align-items: flex-start;
   }
   .process-step:last-child { border-bottom: none; }
+  .process-step { display: flex; }
   .process-step__number {
     flex-shrink: 0;
     width: 44px;

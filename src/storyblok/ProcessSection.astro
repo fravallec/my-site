@@ -10,9 +10,9 @@ const { blok } = Astro.props;
   <div class="process__container">
     <h2>{blok.title}</h2>
     {blok.subtitle && <p class="process__subtitle">{blok.subtitle}</p>}
-    <div class="process__steps">
+    <ol class="process__steps">
       {blok.steps?.map((b: any) => <StoryblokComponent blok={b} />)}
-    </div>
+    </ol>
   </div>
 </section>
 
@@ -42,5 +42,7 @@ const { blok } = Astro.props;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    list-style: none;
+    padding: 0;
   }
 </style>

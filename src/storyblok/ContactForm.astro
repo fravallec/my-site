@@ -8,14 +8,48 @@ const { blok } = Astro.props;
   <div class="contact__container">
     <h2>{blok.title}</h2>
     <p>{blok.subtitle}</p>
+    <div class="contact__success" style="display:none">Message sent — I'll be in touch within 24 hours.</div>
+    <div class="contact__error" style="display:none">Something went wrong. Please try again or email me directly.</div>
     <form class="contact__form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="6" required></textarea>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll('.contact__form').forEach((form) => {
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const container = form.closest('.contact__container') as HTMLElement;
+    const success = container?.querySelector('.contact__success') as HTMLElement;
+    const error = container?.querySelector('.contact__error') as HTMLElement;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      success.style.display = 'none';
+      error.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/contact', { method: 'POST', body: new FormData(form as HTMLFormElement) });
+        if (res.ok) {
+          success.style.display = 'block';
+          (form as HTMLFormElement).reset();
+        } else {
+          error.style.display = 'block';
+        }
+      } catch {
+        error.style.display = 'block';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
+    });
+  });
+</script>
 
 <style>
   .contact { padding: 80px 20px; background: #f9f9f9; }
@@ -24,6 +58,9 @@ const { blok } = Astro.props;
   input, textarea { padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; width: 100%; }
   button { background: rgb(37,49,64); color: white; padding: 14px; border: none; border-radius: 4px; font-size: 1rem; font-weight: 700; cursor: pointer; }
   button:hover { opacity: 0.85; }
+  button:disabled { opacity: 0.6; cursor: not-allowed; }
   h2 { font-size: 2rem; }
   p { color: #555; margin-top: 8px; }
+  .contact__success { padding: 16px; background: #f0faf4; border: 1px solid #a3d9b8; border-radius: 6px; color: #1a6b3a; font-weight: 500; margin-top: 24px; }
+  .contact__error { padding: 16px; background: #fff0f0; border: 1px solid #f5a3a3; border-radius: 6px; color: #9b1c1c; font-weight: 500; margin-top: 24px; }
 </style>

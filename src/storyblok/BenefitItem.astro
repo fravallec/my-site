@@ -5,11 +5,11 @@ interface Props { blok: any; }
 const { blok } = Astro.props;
 ---
 
-<div {...storyblokEditable(blok)} class="benefit-item">
+<article {...storyblokEditable(blok)} class="benefit-item">
   <div class="benefit-item__icon">✓</div>
   <h3>{blok.title}</h3>
   <p>{blok.description}</p>
-</div>
+</article>
 
 <style>
   .benefit-item {
