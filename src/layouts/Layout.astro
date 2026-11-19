@@ -1,8 +1,10 @@
 ---
+import { Analytics } from '@vercel/analytics/astro';
+
 interface Props {
   title?: string;
 }
-const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } = Astro.props;
+const { title = 'Francesco Vallecoccia | Technical SEO Consultant' } = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -91,7 +93,7 @@ const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } =
       <div class="footer__container">
         <div class="footer__brand">
           <strong class="footer__name">Francesco Vallecoccia</strong>
-          <p class="footer__tagline">Ecommerce Technical SEO Consultant</p>
+          <p class="footer__tagline">Technical SEO Consultant</p>
         </div>
         <nav class="footer__col" aria-label="Services">
           <h2 class="footer__heading">Services</h2>
@@ -135,6 +137,7 @@ const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } =
       </div>
       <div class="footer__bottom">
         <p>&copy; {new Date().getFullYear()} Francesco Vallecoccia. All rights reserved.</p>
+        <p class="footer__legal">Trading through Frank Digital Ltd · Registered in England &amp; Wales</p>
       </div>
     </footer>
 
@@ -146,6 +149,7 @@ const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } =
         hamburger.setAttribute('aria-expanded', String(isOpen));
       });
     </script>
+    <Analytics />
   </body>
 </html>
 
@@ -339,6 +343,7 @@ const { title = 'Francesco Vallecoccia | Ecommerce Technical SEO Consultant' } =
     color: rgba(255,255,255,0.3);
     font-size: 0.8rem;
   }
+  .footer__legal { margin-top: 4px; font-size: 0.75rem; color: rgba(255,255,255,0.2); }
 
   @media (max-width: 900px) {
     .nav__links { display: none; }
