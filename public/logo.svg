@@ -1,0 +1,46 @@
+<svg viewBox="0 0 200 215" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Francesco Vallecoccia — Technical SEO &amp; PPC Consultant">
+
+  <!-- Lens glass fill -->
+  <circle cx="100" cy="95" r="72" fill="#edf1f5"/>
+
+  <!-- Lens glass specular highlight -->
+  <path d="M 58 44 Q 40 60 44 76" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Lens outline -->
+  <circle cx="100" cy="95" r="72" fill="none" stroke="#253140" stroke-width="7.5"/>
+
+  <!-- FV initials -->
+  <text x="53" y="104"
+        font-family="'Helvetica Neue','Arial Black',Arial,sans-serif"
+        font-size="40" font-weight="800" fill="#253140" letter-spacing="-1">FV</text>
+
+  <!-- Laptop: screen body -->
+  <rect x="112" y="71" width="30" height="22" rx="3"
+        fill="white" stroke="#253140" stroke-width="2.5"/>
+  <!-- Laptop: screen display -->
+  <rect x="114.5" y="73.5" width="25" height="17" rx="1.5" fill="#bdd0e0"/>
+  <!-- Laptop: screen lines suggesting content -->
+  <line x1="117" y1="78" x2="137" y2="78" stroke="rgba(37,49,64,0.2)" stroke-width="1.5"/>
+  <line x1="117" y1="82" x2="133" y2="82" stroke="rgba(37,49,64,0.2)" stroke-width="1.5"/>
+  <!-- Laptop: base/keyboard -->
+  <path d="M 108 93.5 L 146 93.5 L 143.5 101 L 110.5 101 Z" fill="#253140"/>
+
+  <!-- Thin divider before domain -->
+  <line x1="68" y1="114" x2="132" y2="114" stroke="#253140" stroke-width="0.75" stroke-opacity="0.25"/>
+
+  <!-- fravallec.com domain -->
+  <text x="100" y="130"
+        font-family="'Courier New','Lucida Console',monospace"
+        font-size="12.5" fill="#253140" text-anchor="middle" letter-spacing="0.6">fravallec.com</text>
+
+  <!-- Lens handle -->
+  <line x1="151" y1="146" x2="179" y2="174"
+        stroke="#253140" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Tagline -->
+  <text x="100" y="203"
+        font-family="'Helvetica Neue',Arial,sans-serif"
+        font-size="10.5" fill="#6b828f" text-anchor="middle"
+        letter-spacing="2.5" font-weight="400">SEO · PPC CONSULTANT</text>
+
+</svg>
