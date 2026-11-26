@@ -7,11 +7,18 @@ const storyblokApi = useStoryblokApi();
 const slug = Astro.params.slug ?? 'home';
 
 const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
-  version: 'draft',
+  version: import.meta.env.DEV ? 'draft' : 'published',
 });
 
 const story = data.story;
+const content = story.content;
+
+const pageTitle = content.seo_title || content.meta_title || story.name
+  ? `${content.seo_title || content.meta_title || story.name} | Francesco Vallecoccia`
+  : 'Francesco Vallecoccia | Technical SEO Consultant';
+
+const pageDescription = content.seo_description || content.meta_description || '';
 ---
-<Layout title="Francesco Vallecoccia | Ecommerce Technical SEO Consultant">
-  <StoryblokComponent blok={story.content} />
+<Layout title={pageTitle} description={pageDescription || undefined}>
+  <StoryblokComponent blok={content} />
 </Layout>
