@@ -18,7 +18,10 @@ const { title = 'Francesco Vallecoccia | Technical SEO Consultant' } = Astro.pro
   <body>
     <header class="nav">
       <div class="nav__container">
-        <a href="/" class="nav__logo">Francesco Vallecoccia</a>
+        <a href="/" class="nav__logo">
+          <img src="/favicon.svg" alt="" width="28" height="28" class="nav__logo-icon" />
+          Francesco Vallecoccia
+        </a>
 
         <nav class="nav__links" aria-label="Primary navigation">
           <div class="nav__item">
@@ -187,6 +190,13 @@ const { title = 'Francesco Vallecoccia | Technical SEO Consultant' } = Astro.pro
     font-weight: 700;
     font-size: 1rem;
     white-space: nowrap;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav__logo-icon {
+    display: block;
     flex-shrink: 0;
   }
   .nav__links {
