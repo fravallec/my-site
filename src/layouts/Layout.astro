@@ -4,19 +4,56 @@ import Analytics from '@vercel/analytics/astro';
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  robots?: string;
+  ogType?: string;
+  ogImage?: string;
+  noindex?: boolean;
 }
+
 const {
   title = 'Technical SEO Consultant London | Fravallec',
   description = 'Freelance technical SEO consultant based in London. I help businesses improve search visibility through technical audits, structured data, and SEO strategy.',
+  canonical = Astro.url.href,
+  robots,
+  ogType = 'website',
+  ogImage = 'https://fravallec.com/og-image.jpg',
+  noindex = false,
 } = Astro.props;
+
+const robotsContent = noindex ? 'noindex, nofollow' : (robots ?? 'index, follow');
+const canonicalUrl = canonical.split('?')[0]; // strip query strings from canonical
 ---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Primary -->
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
+    <meta name="author" content="Francesco Vallecoccia" />
+    <meta name="robots" content={robotsContent} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Fravallec" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:creator" content="@fravallec" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
