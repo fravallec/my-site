@@ -13,10 +13,41 @@ const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
 const story = data.story;
 const content = story.content;
 
-const rawTitle = content.seo_title || content.meta_title || story.name;
-const pageTitle = rawTitle ? `${rawTitle} | Fravallec` : 'Technical SEO Consultant London | Fravallec';
+const seoMap: Record<string, { title: string; description: string }> = {
+  'services/technical-seo': {
+    title: 'Technical SEO Consultant London | Fravallec',
+    description: 'Freelance technical SEO consultant in London. I audit and fix crawlability, structured data, page speed and indexing issues. Get in touch for a scoping call.',
+  },
+  'services/geo-ai-seo': {
+    title: 'GEO & AI SEO Consultant | Fravallec',
+    description: 'I help brands appear in AI Overviews, ChatGPT and Gemini citations — not just traditional search. Freelance GEO consultant based in London. Let\'s talk.',
+  },
+  'services/javascript-seo': {
+    title: 'JavaScript SEO Consultant | Fravallec',
+    description: 'Fixing SEO for React, Next.js and headless sites. I audit rendering issues, lazy loading and crawlability for JS-heavy websites. Book a scoping call.',
+  },
+  'services/seo-migration': {
+    title: 'SEO-Safe Web Migration Consultant | Fravallec',
+    description: 'Planning a website migration? I make sure you don\'t lose rankings. Redirect mapping, pre and post-launch audits, monitoring included. Get in touch.',
+  },
+  'services/headless-seo': {
+    title: 'Headless SEO Consultant | Fravallec',
+    description: 'SEO for Storyblok, Contentful and Sanity. I help teams build headless sites that Google can crawl and index properly. Get in touch.',
+  },
+  'services/seo-data-automation': {
+    title: 'SEO Data & Automation | Fravallec',
+    description: 'Custom SEO reporting, Python scripts and BigQuery dashboards. I automate the analysis work so your team focuses on decisions, not data pulling. Get in touch.',
+  },
+  'services/google-ads-consultant': {
+    title: 'Google Ads Consultant London | Fravallec',
+    description: 'Freelance Google Ads consultant for budgets up to £10k/month. Campaign setup, audits, conversion tracking and monthly management — without the agency overhead.',
+  },
+};
 
-const pageDescription = content.seo_description || content.meta_description || '';
+const pageSeo = seoMap[slug];
+const rawTitle = content.seo_title || content.meta_title || pageSeo?.title || story.name;
+const pageTitle = rawTitle ? `${rawTitle.includes('| Fravallec') ? rawTitle : rawTitle + ' | Fravallec'}` : 'Technical SEO Consultant London | Fravallec';
+const pageDescription = content.seo_description || content.meta_description || pageSeo?.description || '';
 ---
 <Layout title={pageTitle} description={pageDescription || undefined}>
   <StoryblokComponent blok={content} />
