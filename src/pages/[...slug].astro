@@ -13,9 +13,8 @@ const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
 const story = data.story;
 const content = story.content;
 
-const pageTitle = content.seo_title || content.meta_title || story.name
-  ? `${content.seo_title || content.meta_title || story.name} | Francesco Vallecoccia`
-  : 'Francesco Vallecoccia | Technical SEO Consultant';
+const rawTitle = content.seo_title || content.meta_title || story.name;
+const pageTitle = rawTitle ? `${rawTitle} | Fravallec` : 'Technical SEO Consultant London | Fravallec';
 
 const pageDescription = content.seo_description || content.meta_description || '';
 ---
